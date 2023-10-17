@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="row mt-4 mx-1">
+    <div class="col-12 col-md-6 offset-md-3">
+	<div class="card">
+	  <form class="card-body" method="post">
+	    {% csrf_token %}
+	    {{form | crispy}}
+	    <div class="d-flex justify-content-end m-3">
+	      <input type="submit" value="Login" class="btn btn-primary shadow">
+	    </div>
+	  </form>
+	</div>
+    </div>
+</div>
+{% endblock %}

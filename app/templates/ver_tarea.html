@@ -1,0 +1,11 @@
+{% extends './base.html' %}
+
+{% block title %}Ver Tarea{% endblock %}
+
+{% block content %}
+<h1>Titulo: {{tarea.title}}</h1>
+<p>Descripcion: {{tarea.description}}</p>
+<p>Creado el: {{tarea.created | date:'D d M f a'}}</p>
+
+<a href="/tareas" class="btn btn-primary m-3">Volver</a>
+{% endblock %}

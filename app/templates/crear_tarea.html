@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+
+{% block title %}Crear tarea{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{{error}}
+<div class="row mt-4 mx-1">
+    <div class="col-12 col-md-6 offset-md-3">
+	<div class="card">
+	  <form class="card-body" method="post">
+	    {% csrf_token %}
+	    {{form | crispy}}
+	    <div class="d-flex justify-content-end m-3">
+	      <input type="submit" value="Ok" class="btn btn-primary shadow">
+	    </div>
+	  </form>
+	</div>
+    </div>
+</div>
+{% endblock %}

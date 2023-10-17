@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+
+{% block title %}Listar tareas{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h3 class="text-center">Tareas</h3>
+  <div class="table-responsive">
+    <table class="table table-striped mx-auto table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">usuario</th>
+          <th scope="col">title</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">creado</th>
+          <th scope="col">Importante?</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tarea in tareas %}
+        <tr>
+          <td scope="row">{{tarea.user}}</td>
+          <th>{{tarea.title}}</th>
+          <td>{{tarea.description}}</td>
+          <td>{{tarea.created | date:'D d M f a'}}</td>
+          <td>
+            {% if tarea.important %}
+              Yes
+            {% else %}
+              No
+            {% endif %}
+                </td>
+          <td>
+            <a href="{% url 'modificar_tarea' tarea.id %}" class="btn me-1 mt-1 btn-warning btn-sm">Modificar</a>
+            <a href="{% url 'eliminar_tarea' tarea.id %}" class="btn me-1 mt-1 btn-danger btn-sm">Eliminar</a>
+            <a href="{% url 'ver_tarea' tarea.id %}" class="btn me-1 mt-1 btn-success btn-sm">Ver</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-end">
+    <a href="{% url 'crear_tarea' %}" class="btn btn-primary m-3">Crear tarea</a>
+  </div>
+</div>
+{% endblock %}
+
