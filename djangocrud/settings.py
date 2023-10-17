@@ -119,7 +119,7 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgres://to_do_rr7q_user:LqpaK9Zsmk7jwG75tWETOFURdEWHvoeq@dpg-ckn23gf83ejs73957hng-a.oregon-postgres.render.com/to_do_rr7q',
         conn_max_age=600
     )}
 
