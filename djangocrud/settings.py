@@ -117,11 +117,10 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://to_do_rr7q_user:LqpaK9Zsmk7jwG75tWETOFURdEWHvoeq@dpg-ckn23gf83ejs73957hng-a.oregon-postgres.render.com/to_do_rr7q',
-        conn_max_age=600
-    )}
+	"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
